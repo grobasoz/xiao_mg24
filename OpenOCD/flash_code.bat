@@ -1,0 +1,45 @@
+@echo off
+if "%1"=="" (
+    echo No firmware hex file was provided!
+		exit /b
+)
+if not exist "%1" (
+		echo Firmware hex file was not found!
+		exit /b
+)
+
+set hexfile=%1
+set hexfileesc=%hexfile:\=\\%
+
+:ask
+echo.
+echo Flash Image "%hexfileesc%"?
+set "choice="
+set /p choice="Press Y or Enter to continue or N to exit: "
+
+if /i "%choice%"=="N" goto no
+if /i "%choice%"=="Y" goto yes
+
+:: If no input is provided, default to 'Y'
+if "%choice%"=="" goto yes
+
+goto ask
+
+:no
+goto end
+
+:yes
+@.\bin\openocd-efm32s2 -s scripts ^
+	-f interface\cmsis-dap.cfg ^
+	-c "transport select swd" ^
+	-f target\efm32s2_g23.cfg ^
+	-c init ^
+	-c halt ^
+	-c "flash probe 0" ^
+	-c "flash banks" ^
+	-c "flash list" ^
+	-c "flash write_image erase %hexfileesc%" ^
+	-c exit
+
+:end
+
