@@ -69,7 +69,7 @@ The serial number of the connected device can be found using the *ident_device* 
 
 Create a separate (numbered) *cmsis-dap.cfg* for each XIAO MG24 and call from the batch files accordingly.
 eg. 
-> cmsis-dap_6E915816.cfg
+> cmsis-dap_6E915816.cfg ^
 
 and modify this line accordingly in the flash_code.bat file...
 
