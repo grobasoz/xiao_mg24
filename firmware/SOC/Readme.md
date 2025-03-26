@@ -24,14 +24,14 @@ Pair a [XIAO MG24](https://www.seeedstudio.com/Seeed-Studio-XIAO-MG24-p-6247.htm
 NB: Make sure only one USB based XIAO MG24 is connected
 
 **Flash the bootloader - from the OpenOCD folder**
-> flash_code ..\firmware\SOC\XIAO_MG24_BTL_INT_1K5.hex
+```flash_code ..\firmware\SOC\XIAO_MG24_BTL_INT_1K5.hex```
 
 (Should take less than 1 second)
 
 **Flash the main application**
-> flash_code ..\firmware\SOC\XIAO_MG24_LD2410_TEST.hex
+```flash_code ..\firmware\SOC\XIAO_MG24_LD2410_TEST.hex```
 
-(Should take a 10 seconds)
+(Should take about 10 seconds)
 
 If you have a serial port monitor connected to your XIAO MG24 you should see the following...
 
@@ -52,11 +52,11 @@ The device will try to connect to a Zigbee network automatically, eg Home Assist
 
 ##### To test with Zigbee2MQTT
 Flash a second XIAO_MG24 with the bootloader firmware...
-> flash_code ..\firmware\SOC\XIAO_MG24_BTL_STD.hex firmware 
+```flash_code ..\firmware\SOC\XIAO_MG24_BTL_STD.hex firmware```
 
 and the NCP Application firmware. 
 
-> flash_code ..\firmware\ZIGBEE_NCP\XIAO_MG24_NCP_SW_115k2.hex
+```flash_code ..\firmware\ZIGBEE_NCP\XIAO_MG24_NCP_SW_115k2.hex```
 
 Again, only one XIAO MG24 should be connected at a time.
 
@@ -69,17 +69,17 @@ The serial number of the connected device can be found using the *ident_device* 
 
 Create a separate (numbered) *cmsis-dap.cfg* for each XIAO MG24 and call from the batch files accordingly.
 eg. 
-> cmsis-dap_6E915816.cfg ^
+```cmsis-dap_6E915816.cfg ^```
 
 and modify this line accordingly in the flash_code.bat file...
 
-> -f interface\cmsis-dap.cfg ^
+```-f interface\cmsis-dap.cfg ^```
 
 to
 
-> -f interface\cmsis-dap_6E915816.cfg ^
+```-f interface\cmsis-dap_6E915816.cfg ^```
 or
-> -f interface\cmsis-dap_%1.cfg ^
+```-f interface\cmsis-dap_%1.cfg ^```
 
 and pass the serial number in the command as a parameter.
 
