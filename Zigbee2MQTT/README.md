@@ -28,7 +28,7 @@ Edit the *configuration.yaml* file.
 
 ```cd data
 copy configuration.example.yaml configuration.yaml
-*edit* configuration.yaml (i.e. with your usual editor)
+edit configuration.yaml (i.e. with your usual editor)
 ```
 
 Add the following basic settings (modifying where necessary).
@@ -43,3 +43,5 @@ serial:
   rtscts: false
   baud: 115200
 ```
+
+### External Converters

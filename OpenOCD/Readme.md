@@ -2,7 +2,6 @@
 
 ### Windows Batch Commands
 
-
 * ident-device (Identify the device)
  
 * flash_code "firmware\\<flash_file>.hex"
