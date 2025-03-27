@@ -1,13 +1,36 @@
 ## XIAO MG24 Zigbee Firmware
 
-#### Bootloaders
-* XIAO_MG24_BTL_STD.hex  - Standalone bootloader for MG24 (used for XModem upload via serial port).
-* XIAO_MG24_BTL_INT_1K5.hex  - Internal bootloader for MG24 (used for OTA).
+##### Bootloaders
+* XIAO_MG24_BTL_STD.hex  - Standalone bootloader for MG24 (used for XModem upload via serial port)
+* XIAO_MG24_BTL_INT_1K5.hex  - Internal bootloader for MG24 (used for OTA)
 
 ##### Test Firmware for XIAO_MG24 (Chip Antenna, No Sense)
-* XIAO_MG24_ZBMIN_TEST.hex - Minimal Zigbee Application for testing - .axf for debugging.
+* XIAO_MG24_ZBMIN_TEST - Minimal Zigbee Application for testing (axf for debugging)
+* XIAO_MG24_LD2410_TEST - Minimal Zigbee Application for LD2410 sensor testing
 
-* XIAO_MG24_LD2410_TEST.hex - Minimal Zigbee Application for LD2410 sensor testing.
+
+#### Debugging (using VSCode and gdb)
+1. Load the code as per normal, verify
+2. Launch the gdb server - debug.bat
+3. Select the hex file to debug (if axf file exists) - eg XIAO_MG24_ZBMIN_TEST.hex
+4. Launch the debugger - OpenOCD File Debug
+
+*NB. To make the launch easier, create a folder with the same name as the hex/axf file name - see XIAO_MG24_ZBMIN_TEST*
+<hr>
+
+#### Sample Debugging Session
+
+![Debugging](../../assets/XIAO_MG24_Debugging.png)
+
+1. Select the repository for a workspace in VSCode
+2. Open a terminal and *cd OpenOCD*
+3. Run *debug.bat*
+4. Select *firmware* folder
+5. Select *SOC* folder
+6. Select *XIAO_MG24_MIN_TEST* folder
+7. Select *XIAO_MG24_MIN_TEST.hex* file
+8. Debug using the *OpenOCD File Debug* option
+
 
 <hr>
 
@@ -20,7 +43,7 @@ Pair a [XIAO MG24](https://www.seeedstudio.com/Seeed-Studio-XIAO-MG24-p-6247.htm
 #### Example command line entries
 
 
-##### XIAO MG24 LD2410 Microwave Sensor Test.
+#### XIAO MG24 LD2410 Microwave Sensor Test.
 NB: Make sure only one USB based XIAO MG24 is connected
 
 **Flash the bootloader - from the OpenOCD folder**
@@ -45,6 +68,7 @@ LD2410 Starting
 XIAO_MG24_LD2410> 
 
 ```
+<hr>
 
 #### Connecting to Zigbee2MQTT
 

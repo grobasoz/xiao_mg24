@@ -39,6 +39,8 @@ goto end
 	-c "flash banks" ^
 	-c "flash list" ^
 	-c "flash write_image erase %hexfileesc%" ^
+	-c "verify_image %hexfileesc%" ^
+	-c "reset run" ^
 	-c exit
 
 :end
