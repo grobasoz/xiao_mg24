@@ -39,6 +39,7 @@ goto end
 	-c "flash banks" ^
 	-c "flash list" ^
 	-c "flash verify_image %hexfileesc%" ^
+	-c "reset run" ^
 	-c exit
 
 :end
