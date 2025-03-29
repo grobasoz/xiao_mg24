@@ -1,6 +1,20 @@
 ## Zigbee2MQTT and the XIAO MG24
 
-### We need to...
+### Firmware
+
+There are two versions, each with a *hex* file and *gbl* file
+
+1. The *hex* file is used with the OpenOCD batch files for programming and verifying
+
+2. The *gbl* file is for use with the Gecko Bootloader when the device is started in Bootloader Mode
+
+There are two versions of the NCP firmware, *non-UFL* and *UFL*
+
+1. The *non-UFL* uses the chip antenna on the XIAO MG24
+
+2. The *UFL* version uses the UFL connector and requires a 2.4GHz antenna to be attached 
+
+### Instructional Steps
 
 * Create Zigbee NCP for use with Zigbee2MQTT
 
