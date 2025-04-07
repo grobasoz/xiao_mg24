@@ -2,17 +2,21 @@
 
 #### Use with Zigbee2MQTT 
 
+### Firmware
 
-In **configuration.yaml** set the following...
-```python
-serial:
-  port: COMxx
-  adapter: ember
-  rtscts: false
-  baud: 115200
-```
+There are two versions, each with a *hex* file and *gbl* file
 
-#### Notes:
+1. The *hex* file is used with the OpenOCD batch files for programming and verifying
+
+2. The *gbl* file is for use with the Gecko Bootloader when the device is started in Bootloader Mode
+
+There are two versions of the NCP firmware, *non-UFL* and *UFL*
+
+1. The *non-UFL* uses the chip antenna on the XIAO MG24
+
+2. The *UFL* version uses the UFL connector and requires a 2.4GHz antenna to be attached 
+
+### Notes:
 
 The bootloader GPIO activation is via XIAO MG24 - D10 (PA5). Pulling low during reset will cause the device to enter the bootloader. 
 
