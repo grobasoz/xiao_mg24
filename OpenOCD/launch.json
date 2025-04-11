@@ -1,0 +1,84 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "OpenOCD File Debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "targetArchitecture": "arm",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}/firmware/SOC/${fileBasenameNoExtension}/${fileBasenameNoExtension}.hex",
+      "stopAtEntry": false,
+      "windows": {
+        "MIMode": "gdb",
+        "miDebuggerPath": "arm-none-eabi-gdb.exe",
+        "customLaunchSetupCommands": [
+          {
+            "text": "cd ${workspaceRoot}"
+          },
+          {
+            "text": "target remote localhost:3333",
+            "description": "connect to remote target",
+            "ignoreFailures": false
+          },
+          {
+            "text": "monitor reset halt",
+            "description": "halt",
+            "ignoreFailures": false
+          },
+          {
+            "text": "file firmware/SOC/${fileBasenameNoExtension}/${fileBasenameNoExtension}.axf",
+            "description": "load symbols",
+            "ignoreFailures": false
+          },
+          {
+            "text":"tbreak main",
+            "description": "breakpoint main",
+            "ignoreFailures": false
+          }
+        ]
+      },
+    },
+    {
+      "name": "OpenOCD Debug Test",
+      "type": "cppdbg",
+      "request": "launch",
+      "targetArchitecture": "arm",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}/firmware/SOC/XIAO_MG24_ZBMIN_TEST/XIAO_MG24_ZBMIN_TEST.hex",
+      "stopAtEntry": false,
+      "windows": {
+        "MIMode": "gdb",
+        "miDebuggerPath": "arm-none-eabi-gdb.exe",
+        "customLaunchSetupCommands": [
+          {
+            "text": "cd ${workspaceRoot}"
+          },
+          {
+            "text": "target remote localhost:3333",
+            "description": "connect to remote target",
+            "ignoreFailures": false
+          },
+          {
+            "text": "monitor reset halt",
+            "description": "halt",
+            "ignoreFailures": false
+          },
+          {
+            "text": "file firmware/SOC/XIAO_MG24_ZBMIN_TEST/XIAO_MG24_ZBMIN_TEST.axf",
+            "description": "load symbols",
+            "ignoreFailures": false
+          },
+          {
+            "text":"tbreak main",
+            "description": "breakpoint main",
+            "ignoreFailures": false
+          }
+        ]
+      },
+    }
+  ]
+}
