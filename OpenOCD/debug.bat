@@ -3,5 +3,6 @@
 	-c "transport select swd" ^
 	-f target\efm32s2_g23.cfg ^
 	-c init ^
-	-c halt ^
-	-c reset
+	-c "reset_config srst_nogate" ^
+	-c "reset halt"
+	

@@ -54,3 +54,4 @@ dkms.conf
 *.bak
 OpenOCD/examples
 /firmware/ZIGBEE_NCP/XIAO_MG24_NCP_SW_115k2copy.hex
+/firmware/ZIGBEE_NCP/x.hex

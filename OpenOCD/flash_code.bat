@@ -34,7 +34,8 @@ goto end
 	-c "transport select swd" ^
 	-f target\efm32s2_g23.cfg ^
 	-c init ^
-	-c halt ^
+	-c "reset_config srst_nogate" ^
+	-c "reset halt" ^
 	-c "flash probe 0" ^
 	-c "flash banks" ^
 	-c "flash list" ^
